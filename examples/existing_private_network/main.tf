@@ -1,5 +1,5 @@
 provider "azurerm" {
-  subscription_id = var.subscription_id
+  subscription_id = "13b706d3-f7a2-4e89-91d3-921288c68091"
   partner_id      = "f13589d1-f10d-4c3b-ae42-3b1a8337eaf1"
   features {
   }
@@ -31,7 +31,7 @@ module "deploy-weka" {
   cluster_size          = var.cluster_size
   set_obs_integration   = var.set_obs_integration
   tiering_ssd_percent   = var.tiering_ssd_percent
-  subscription_id       = var.subscription_id
+  subscription_id       = "13b706d3-f7a2-4e89-91d3-921288c68091"
   private_dns_zone_name = module.create-network.private-dns-zone-name
   depends_on            = [module.create-network]
 }

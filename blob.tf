@@ -1,5 +1,5 @@
 resource "azurerm_storage_account" "deployment_sa" {
-  name                     = "${local.alphanumeric_prefix_name}${local.alphanumeric_cluster_name}deployment"
+  name                     = "${local.alphanumeric_prefix_name}${local.alphanumeric_cluster_name}deployment2w"
   location                 = data.azurerm_resource_group.rg.location
   resource_group_name      = var.rg_name
   account_kind             = "StorageV2"
