@@ -1,5 +1,32 @@
+terraform {
+  required_version = ">= 1.0.0, < 2.0.0"
+
+  backend "azurerm" {
+    resource_group_name  = "az-eastus-weka-tf-state-rg"
+    storage_account_name = "azeastuswekatfstate01"
+    container_name       = "azeastuswekatfstatecon01"
+    key                  = "jacton.tfstate"
+    use_azuread_auth     = true
+    subscription_id      = "13b706d3-f7a2-4e89-91d3-921288c68091"
+    tenant_id            = "8242a0a9-c415-4206-be39-06637ad2817a"
+  }
+
+  # required_providers {
+  #   azurerm = {
+  #     source  = "hashicorp/azurerm"
+  #     version = ">= 3.9.0, < 3.52.0"
+  #   }
+  # }
+}
+
+# provider "azurerm" {
+#   subscription_id = "13b706d3-f7a2-4e89-91d3-921288c68091"
+
+#   features {}
+# }
+
 provider "azurerm" {
-  subscription_id = var.subscription_id
+  subscription_id = "13b706d3-f7a2-4e89-91d3-921288c68091"
   partner_id      = "f13589d1-f10d-4c3b-ae42-3b1a8337eaf1"
   features {
   }
@@ -31,7 +58,7 @@ module "deploy-weka" {
   cluster_size          = var.cluster_size
   set_obs_integration   = var.set_obs_integration
   tiering_ssd_percent   = var.tiering_ssd_percent
-  subscription_id       = var.subscription_id
+  subscription_id       = "13b706d3-f7a2-4e89-91d3-921288c68091"
   private_dns_zone_name = module.create-network.private-dns-zone-name
   depends_on            = [module.create-network]
 }
