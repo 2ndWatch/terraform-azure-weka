@@ -52,10 +52,10 @@ variable "private_network" {
   description = "Should be true to enable private network, defaults to public networking"
 }
 
-variable "subscription_id" {
-  type = string
-  description = "Subscription id for deployment"
-}
+# variable "subscription_id" {
+#   type = string
+#   description = "Subscription id for deployment"
+# }
 
 variable "instance_type" {
   type = string
